@@ -36,7 +36,20 @@ class MainActivity : AppCompatActivity() {
         }
 
         // result
-        btnResult.setOnClickListener { }
+        btnResult.setOnClickListener {
+            try {
+                val expression = ExpressionBuilder(txtExpression.text.toString()).build()
+                val result = expression.evaluate()
+                val longResult  = result.toLong()
+
+                if(result == longResult.toDouble()){
+                    txtResult.text = longResult.toString()
+                }else{
+                    txtResult.text = result.toString()
+                }
+            }catch (e: Exception){}
+        }
+        }
     }
 
     private fun addExpression(string:String, clearData:Boolean){
