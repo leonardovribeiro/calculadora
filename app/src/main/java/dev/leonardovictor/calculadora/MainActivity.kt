@@ -12,28 +12,44 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         // numbers
-        btnZero.setOnClickListener { }
-        btnOne.setOnClickListener { }
-        btnTwo.setOnClickListener { }
-        btnThree.setOnClickListener { }
-        btnFour.setOnClickListener { }
-        btnFive.setOnClickListener { }
-        btnSix.setOnClickListener { }
-        btnSeven.setOnClickListener { }
-        btnEight.setOnClickListener { }
-        btnNine.setOnClickListener { }
+        btnZero.setOnClickListener { addExpression("0", true) }
+        btnOne.setOnClickListener { addExpression("1", true) }
+        btnTwo.setOnClickListener { addExpression("2", true) }
+        btnThree.setOnClickListener { addExpression("3", true) }
+        btnFour.setOnClickListener { addExpression("4", true) }
+        btnFive.setOnClickListener { addExpression("5", true) }
+        btnSix.setOnClickListener { addExpression("6", true) }
+        btnSeven.setOnClickListener { addExpression("7", true) }
+        btnEight.setOnClickListener { addExpression("8", true) }
+        btnNine.setOnClickListener { addExpression("9", true) }
 
         // operators
-        btnSum.setOnClickListener { }
-        btnSubtract.setOnClickListener { }
-        btnDivide.setOnClickListener { }
-        btnMultiply.setOnClickListener { }
+        btnSum.setOnClickListener { addExpression("+", false) }
+        btnSubtract.setOnClickListener { addExpression("-", false) }
+        btnDivide.setOnClickListener { addExpression("/", false) }
+        btnMultiply.setOnClickListener { addExpression("*", false) }
 
         // clear
         btnClear.setOnClickListener { }
 
         // result
         btnResult.setOnClickListener { }
+    }
+
+    private fun addExpression(string:String, clearData:Boolean){
+
+        if(txtResult.text.isNotEmpty()){
+            txtExpression.text = ""
+        }
+
+        if(clearData){
+            txtResult.text = ""
+            txtExpression.append(string)
+        }else{
+            txtExpression.append(txtResult.text)
+            txtExpression.append(string)
+            txtResult.text = ""
+        }
     }
 }
 
