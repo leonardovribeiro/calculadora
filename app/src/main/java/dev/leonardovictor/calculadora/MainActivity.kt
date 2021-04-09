@@ -50,7 +50,6 @@ class MainActivity : AppCompatActivity() {
             }catch (e: Exception){}
         }
         }
-    }
 
     private fun addExpression(string:String, clearData:Boolean){
 
