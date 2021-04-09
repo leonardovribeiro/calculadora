@@ -30,7 +30,10 @@ class MainActivity : AppCompatActivity() {
         btnMultiply.setOnClickListener { addExpression("*", false) }
 
         // clear
-        btnClear.setOnClickListener { }
+        btnClear.setOnClickListener {
+            txtExpression.text = ""
+            txtResult.text = ""
+        }
 
         // result
         btnResult.setOnClickListener { }
